@@ -17,8 +17,13 @@ body{
     padding: 0;
     margin: 0;
 }
+
 li{
     list-style: none;
+}
+.space-between{
+    display: flex;
+    justify-content: space-between;
 }
 .navbar{
     display: flex;

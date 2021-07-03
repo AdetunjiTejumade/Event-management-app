@@ -1,0 +1,15 @@
+<div class="space-between">
+  <h2>Your events </h2>
+  <button><%= link_to "new events", new_event_path %></button>
+</div>
+
+
+<% if @events %>
+  <% @events.each do |event| %>
+    <div>
+      <h3><%= event.name %></h3>
+    </div>
+  <% end %>
+<% else %>
+  <h1>You have no events</h1>
+<% end %>
