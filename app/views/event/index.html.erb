@@ -1,2 +1,8 @@
-<%= render partial: "partials/navbar" %>
-<h1>Home page</h1>
+
+<h2>Your events </h2>
+
+<% if @event %>
+  <h1> hey there handsome</h1>
+<% else %>
+  <h1>You have no events</h1>
+<% end %>
