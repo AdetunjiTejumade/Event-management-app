@@ -1,0 +1,10 @@
+<nav class="navbar">
+  <h1>Tix.africa</h1>
+  <ul>
+    <% if user_signed_in? %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+    <% else %>
+      <%= link_to "sign in", new_user_session_path, :class => 'nav-item nav-link text-white'  %>
+    <% end %>
+  </ul>
+</nav>
