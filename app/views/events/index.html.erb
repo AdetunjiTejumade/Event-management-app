@@ -8,7 +8,7 @@
   <% @events.each do |event| %>
     <div>
       <h3><%= event.name %></h3>
-      <p><%= event.start_date  %></p>
+      <p><%= event.start_date.to_s(:custom)  %></p>
     </div>
   <% end %>
 <% else %>
