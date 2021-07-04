@@ -7,7 +7,11 @@ RSpec.describe User, type: :model do
     it 'can be created' do
       expect(user).to be_valid
       expect(User.count).to eq(1)
-      # expect(User.email).to eq(user.email)
     end
   end
+  # describe 'can update' do
+  #   it 'can change the first_name' do
+  #     put :update, params: { id: user.}
+  #   end
+  # end
 end
