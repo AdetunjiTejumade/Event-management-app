@@ -19,11 +19,9 @@ ActiveRecord::Schema.define(version: 2021_07_03_142059) do
     t.string "name"
     t.text "description"
     t.text "location"
-    t.time "start_date"
-    t.time "end_date"
-    t.time "start_time"
-    t.time "end_time"
-    t.boolean "paid"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean "paid", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
