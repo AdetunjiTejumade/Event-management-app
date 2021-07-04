@@ -1,6 +1,6 @@
 <div class="space-between">
   <h2>Your events </h2>
-  <button><%= link_to "new events", new_event_path %></button>
+  <%= link_to "new events", new_event_path %>
 </div>
 
 
@@ -9,6 +9,7 @@
     <div>
       <h3><%= event.name %></h3>
       <p><%= event.start_date.to_s(:custom)  %></p>
+      <%= link_to "view event", event_path(event) %>
     </div>
   <% end %>
 <% else %>

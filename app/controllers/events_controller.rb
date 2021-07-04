@@ -3,7 +3,9 @@ class EventsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @events = Event.where(user_id: current_user.id)
+    @events = Event.all
+    # uncomment to display only events created by current users
+    # @events = Event.where(user_id: current_user.id)
   end
 
   def show

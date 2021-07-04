@@ -1,5 +1,5 @@
 <nav class="navbar">
-  <h1>Tix.africa</h1>
+  <h1><%= link_to "Event platform", events_path %></h1>
   <ul>
     <% if user_signed_in? %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
