@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_07_05_130829) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "active", default: true
+    t.boolean "in_active", default: false
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 

@@ -13,7 +13,9 @@
       <%= form.text_field :location %>
       <%= form.datetime_field :start_date %>
       <%= form.datetime_field :end_date %>
-      <%= form.check_box :paid, label: "Paid" %>
+      <%= form.check_box :paid %>
+      <%= form.label :active %>
+      <%= form.check_box :in_active %>
       <%= form.submit "create" %>
     <% end %>
   </div>

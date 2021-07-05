@@ -64,10 +64,10 @@ RSpec.feature "Events", type: :feature do
       sign_in user
       visit edit_event_path(event_id)
 
-      page.check('active')
+      page.check('event_active')
 
       click_on 'save'
-      expect(page).to have_text('this event is inactive')
+      expect(page).to have_text('event is inactive')
     end
   end
 

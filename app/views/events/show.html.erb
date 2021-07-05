@@ -1,8 +1,13 @@
 <div>
   <h4><%= @event.name %></h4>
+  <% if @event.in_active %>
+    <p>event is inactive</p>
+  <% end %>
+  <p><%= @event.in_active %></p>
+  <p><%= @event.paid %></p>
   <%= link_to "Edit", edit_event_path(@event) %>
 
   <%= link_to "Delete", event_path(@event),
               method: :delete,
-              data: {confirm: 'Are you sure?'}%>
+              data: { confirm: 'Are you sure?' } %>
 </div>
