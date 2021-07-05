@@ -64,7 +64,7 @@ RSpec.feature "Events", type: :feature do
       sign_in user
       visit edit_event_path(event_id)
 
-      page.check('event_active')
+      page.check('event_in_active')
 
       click_on 'save'
       expect(page).to have_text('event is inactive')
