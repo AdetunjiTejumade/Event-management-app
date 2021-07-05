@@ -146,3 +146,15 @@ li{
     margin-top: 0.6rem;
     color: #2E2F30;
 }
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .single-event-main{
+        margin:4% 6.5%;
+    }
+    .homepage-main{
+        margin:4% 6.5%;
+    }
+    .field{
+        width: 100%;
+    }
+}
