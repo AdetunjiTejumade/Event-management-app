@@ -1,10 +1,10 @@
 <nav class="navbar">
-  <h1><%= link_to "Event platform", events_path %></h1>
-  <ul>
+  <h1><%= link_to "Event platform", events_path, :class => 'logo' %></h1>
+  <ul class="text-grey">
     <% if user_signed_in? %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete , :class => 'text-grey' %>
     <% else %>
-      <%= link_to "sign in", new_user_session_path, :class => 'nav-item nav-link text-white'  %>
+      <%= link_to "sign in", new_user_session_path, :class => 'text-grey'  %>
     <% end %>
   </ul>
 </nav>

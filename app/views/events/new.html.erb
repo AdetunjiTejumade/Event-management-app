@@ -1,22 +1,28 @@
-<div>
+<div class="single-event-main">
   <h1>new event</h1>
 
   <div>
-    <%= form_with local: true, model: @event do |form| %>
+    <%= form_with local: true, class: 'form', model: @event do |form|%>
       <% if @event.errors.any? %>
         <% @event.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       <% end %>
-      <%= form.text_field :name %>
-      <%= form.text_area :description %>
-      <%= form.text_field :location %>
-      <%= form.datetime_field :start_date %>
-      <%= form.datetime_field :end_date %>
+      <%= form.label :name %>
+      <%= form.text_field :name, class:'field' %>
+      <%= form.label :description %>
+      <%= form.text_area :description, class:'field' %>
+      <%= form.label :location %>
+      <%= form.text_field :location, class:'field' %>
+      <%= form.label :start_date %>
+      <%= form.datetime_field :start_date, class:'field' %>
+      <%= form.label :end_date %>
+      <%= form.datetime_field :end_date, class:'field' %>
+      <%= form.label :paid %>
       <%= form.check_box :paid %>
-      <%= form.label :active %>
+      <%= form.label :in_active %>
       <%= form.check_box :in_active %>
-      <%= form.submit "create" %>
+      <%= form.submit "create",class:'submit-btn' %>
     <% end %>
   </div>
 </div>

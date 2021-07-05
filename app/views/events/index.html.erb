@@ -1,17 +1,25 @@
-<div class="space-between">
-  <h2>your events </h2>
-  <%= link_to "new events", new_event_path %>
+<div class="homepage-main">
+  <div class="space-between items-center">
+    <h2 class="text-grey">your events </h2>
+      <%= link_to "new events", new_event_path, :class => 'link-btn' %>
+    <%#= button_to new_event_path, class: "link-btn", method: :get do %>
+    <!--      new event-->
+    <%# end %>
+
+  </div>
+
+  <div class="events">
+    <% if @events %>
+      <% @events.each do |event| %>
+        <div class="event-item" >
+          <%= link_to "#{event.name}", event_path(event), :class => 'event-item-name' %>
+          <p class="event-item-date"><%= event.start_date.to_s(:custom) %></p>
+
+        </div>
+      <% end %>
+    <% else %>
+      <h1>You have no events</h1>
+    <% end %>
+  </div>
+
 </div>
-
-
-<% if @events %>
-  <% @events.each do |event| %>
-    <div>
-      <h3><%= event.name %></h3>
-      <p><%= event.start_date.to_s(:custom)  %></p>
-      <%= link_to "view event", event_path(event) %>
-    </div>
-  <% end %>
-<% else %>
-  <h1>You have no events</h1>
-<% end %>
