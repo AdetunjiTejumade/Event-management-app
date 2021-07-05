@@ -37,6 +37,8 @@ RSpec.feature "Events", type: :feature do
       expect(Event.count).to eq(1)
       expect(page).to have_text('Wedding party')
     end
+
+
   end
 
   describe 'edit' do

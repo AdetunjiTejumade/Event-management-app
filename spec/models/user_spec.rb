@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   describe 'creation' do
     it 'can be created' do
       expect(user).to be_valid
-      expect(User.count).to eq(1)
+      expect(User.count).to_not eq(0)
     end
   end
   # describe 'can update' do
