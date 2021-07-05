@@ -1,24 +1,40 @@
-# README
+# Event management
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[View site](https://event-management-webapp.herokuapp.com/)
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+## Install
 
-* Configuration
+### Clone the repository
+``` 
+git clone https://github.com/AdetunjiTejumade/Event-management-app.git 
+cd boulder-bike-tour
+```
+## Check your Ruby version
+`ruby -v`
+The output should start with something like `2.7.2`
 
-* Database creation
+If not, install the right ruby version using rbenv (it could take a while):
 
-* Database initialization
+`rbenv install 2.7.2`
 
-* How to run the test suite
+## Install dependecies:
+``` 
+bundle install
+yarn install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Initialize the database
+`rails db:create db:migrate db:seed`
 
-* Deployment instructions
+## Initialize the test db
+  `bundle exec rails db:create RAILS_ENV=test`
+  `bundle exec rails db:schema:load RAILS_ENV=test`
+  
+## Run tests
+`bundle exec rspec`
 
-* ...
+## Serve
+`rails s`
+And now you can visit the site with the URL http://localhost:3000
