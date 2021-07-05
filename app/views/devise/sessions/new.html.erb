@@ -1,9 +1,13 @@
 <div class="single-event-main">
-
-
   <h2>Log in</h2>
-
   <%= form_for(resource, :html => { :class => "form" }, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
 
     <%= f.label :email %><br/>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'field' %>
