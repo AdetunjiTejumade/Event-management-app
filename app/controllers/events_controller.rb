@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 class EventsController < ApplicationController
+  # uncomment to validate users
   before_action :authenticate_user!
 
   def index
@@ -10,11 +11,11 @@ class EventsController < ApplicationController
 
   def show
     object = Event.find(params[:id])
-    if current_user.id == object.user_id
-      @event = Event.find(params[:id])
-    else
-      render "#{Rails.root}/public/404.html", status: 404
-    end
+    # if current_user.id == object.user_id
+    @event = Event.find(params[:id])
+    # else
+    #   render "#{Rails.root}/public/404.html", status: 404
+    # end
   end
 
   def new
@@ -22,13 +23,23 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
+    object = Event.find(params[:id])
+    if current_user.id == object.user_id
+      @event = Event.find(params[:id])
+    else
+      redirect_to events_path
+    end
   end
 
   def destroy
-    @event = Event.find(params[:id])
-    if @event.destroy
-      redirect_to events_path
+    object = Event.find(params[:id])
+    if current_user.id == object.user_id
+      @event = Event.find(params[:id])
+      if @event.destroy
+        redirect_to events_path
+      else
+        redirect_to events_path
+      end
     else
       redirect_to events_path
     end
@@ -46,13 +57,18 @@ class EventsController < ApplicationController
   end
 
   def update
+    object = Event.find(params[:id])
     @event = Event.find(params[:id])
-
-    if @event.update(event_params)
-      redirect_to @event
+    if current_user.id == object.user_id
+      if @event.update(event_params)
+        redirect_to @event
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      render "#{Rails.root}/public/404.html", status: 404
     end
+
   end
 
   private
