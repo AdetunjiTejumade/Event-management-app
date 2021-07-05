@@ -18,7 +18,6 @@ RSpec.feature "Events", type: :feature do
   end
 
   describe 'creation' do
-
     before do
       sign_in user
       visit new_event_path
@@ -28,7 +27,6 @@ RSpec.feature "Events", type: :feature do
     end
 
     it 'can be created from a new form' do
-
       fill_in 'event[name]', with: 'Wedding party'
       fill_in 'event[description]', with: 'the wedding ceremony of John and Lucy'
       fill_in 'event[location]', with: 'sector 616'
@@ -36,13 +34,12 @@ RSpec.feature "Events", type: :feature do
       fill_in 'event[end_date]', with: '05/07/2021 20:13'
 
       click_on 'create'
+      expect(Event.count).to eq(1)
       expect(page).to have_text('Wedding party')
     end
-
   end
 
   describe 'edit' do
-
     it 'should be editable' do
       sign_in user
       visit edit_event_path(event_id)
@@ -51,6 +48,15 @@ RSpec.feature "Events", type: :feature do
       click_on 'save'
       expect(page).to have_text('Edited event')
     end
+  end
 
+  describe 'deletion' do
+    it 'should be deletable' do
+      sign_in user
+      visit event_path(event_id)
+      click_on 'Delete'
+      expect(current_path).to eq(events_path)
+      expect(Event.count).to eq(0)
+    end
   end
 end
