@@ -38,6 +38,15 @@ RSpec.feature "Events", type: :feature do
       expect(page).to have_text('Wedding party')
     end
 
+    it 'should not create with invalid data' do
+      fill_in 'event[location]', with: 'sector 616'
+      fill_in 'event[start_date]', with: '07/07/2021 19:12'
+      fill_in 'event[end_date]', with: '05/07/2021 20:13'
+
+      click_on 'create'
+      expect(page).to have_text('Name can\'t be blank')
+    end
+
 
   end
 

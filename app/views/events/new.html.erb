@@ -1,13 +1,20 @@
 <div>
   <h1>new event</h1>
 
-  <%= form_with model:@event do |form| %>
-    <%= form.text_field :name %>
-    <%= form.text_area :description %>
-    <%= form.text_field :location %>
-    <%= form.datetime_field :start_date %>
-    <%= form.datetime_field :end_date %>
-    <%= form.check_box :paid, label: "Paid" %>
-    <%= form.submit "create" %>
-  <% end %>
+  <div>
+    <%= form_with local: true, model: @event do |form| %>
+      <% if @event.errors.any? %>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      <% end %>
+      <%= form.text_field :name %>
+      <%= form.text_area :description %>
+      <%= form.text_field :location %>
+      <%= form.datetime_field :start_date %>
+      <%= form.datetime_field :end_date %>
+      <%= form.check_box :paid, label: "Paid" %>
+      <%= form.submit "create" %>
+    <% end %>
+  </div>
 </div>

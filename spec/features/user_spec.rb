@@ -21,7 +21,21 @@ RSpec.feature "Users", type: :feature do
       expect(current_path).to eq(root_path)
       expect(page).to have_text('your events')
     end
+
+    it 'should not sign user up with invalid data' do
+      visit new_user_registration_path
+      fill_in 'user[first_name]', with: first_name
+      fill_in 'user[last_name]', with: last_name
+      # fill_in 'Email', with: email
+      fill_in 'Password', with: password
+      fill_in 'user[password_confirmation]', with: password
+
+      click_on 'Sign up'
+
+      expect(page).to have_text('Email can\'t be blank')
+    end
   end
+
   describe 'sign in process' do
     before :each do
       User.create(first_name: 'john', last_name: 'snow', email: 'john@gmail.com', password: 'password')
