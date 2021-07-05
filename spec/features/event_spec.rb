@@ -59,7 +59,18 @@ RSpec.feature "Events", type: :feature do
       click_on 'save'
       expect(page).to have_text('Edited event')
     end
+
+    it 'can set event as inactive ' do
+      sign_in user
+      visit edit_event_path(event_id)
+
+      page.check('active')
+
+      click_on 'save'
+      expect(page).to have_text('this event is inactive')
+    end
   end
+
 
   describe 'deletion' do
     it 'should be deletable' do
