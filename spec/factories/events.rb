@@ -5,8 +5,8 @@ FactoryBot.define do
     location { Faker::Lorem.word }
     start_date { Faker::Time.between(from: 2.days.ago, to: Time.now) }
     end_date { Faker::Time.forward(days: 23, period: :morning) }
-    in_active { false }
-    paid { false }
+    # in_active { false }
+    # paid { false }
     user_id { nil }
   end
 end
